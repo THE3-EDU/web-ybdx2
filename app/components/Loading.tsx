@@ -12,6 +12,7 @@ const Loading: FC = () => {
           fill
           className="object-contain"
           priority
+          unoptimized
         />
       </div>
 

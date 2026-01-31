@@ -117,6 +117,7 @@ export default function ShowPage() {
               alt="Help"
               width={30}
               height={30}
+              unoptimized
             />
           </button>
         </div>
@@ -152,6 +153,7 @@ export default function ShowPage() {
                 width={20}
                 height={20}
                 className={!hasDrawing ? 'opacity-50' : ''}
+                unoptimized
               />
             </button>
             <div className="absolute bottom-0 w-full aspect-[3/4]">
@@ -209,6 +211,7 @@ export default function ShowPage() {
                   alt="关闭"
                   width={24}
                   height={24}
+                  unoptimized
                 />
               </button>
             </div>

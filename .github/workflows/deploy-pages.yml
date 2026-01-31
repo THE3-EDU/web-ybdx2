@@ -1,0 +1,57 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      # 项目站地址为 xxx.github.io/仓库名，这里用仓库名作为 basePath
+      GITHUB_PAGES_BASE: /${{ github.event.repository.name }}
+      # 供前端 next/image 等资源路径使用（需 NEXT_PUBLIC_ 才能在客户端生效）
+      NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install
+        run: npm ci
+
+      # 静态导出不支持 API 路由，部署 Pages 时仅保留前端页面
+      - name: Remove API routes for static export
+        run: rm -rf app/api
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    environment: github-pages
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        id: deploy
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,7 @@
+{
+  "/favicon.ico/route": "/favicon.ico",
+  "/_not-found/page": "/_not-found",
+  "/api/upload/[filename]/route": "/api/upload/[filename]",
+  "/api/upload/route": "/api/upload",
+  "/page": "/"
+}

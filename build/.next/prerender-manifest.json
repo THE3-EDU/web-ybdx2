@@ -1,0 +1,65 @@
+{
+  "version": 4,
+  "routes": {
+    "/favicon.ico": {
+      "initialHeaders": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-type": "image/x-icon",
+        "x-next-cache-tags": "_N_T_/layout,_N_T_/favicon.ico/layout,_N_T_/favicon.ico/route,_N_T_/favicon.ico"
+      },
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/favicon.ico",
+      "dataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "Next-Action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/",
+      "dataRoute": "/index.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    }
+  },
+  "dynamicRoutes": {},
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "3ef5e78cd1947bec6dca52a523d48359",
+    "previewModeSigningKey": "eb12522d6b1ba0dcfdce19d89ebc77c417a91343eab9d359443a0058059c0200",
+    "previewModeEncryptionKey": "2aff4ed5432704513f2dc268a2bb7e2a6417278d19f8c3e61215a315892e79c9"
+  }
+}

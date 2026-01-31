@@ -51,16 +51,17 @@ const Instructions: FC<InstructionsProps> = ({ onClose }) => {
         </button>
 
         {currentPage === 0 ? (
-          <div className="flex flex-col items-center justify-center h-full">
+          <div className="flex flex-col items-center justify-center h-full min-h-0">
             <Image
               src={asset("/image/intro0.png")}
               alt="Page 1"
               width={300}
               height={400}
+              unoptimized
             />
           </div>
         ) : (
-          <div className="h-full">
+          <div className="h-full overflow-y-auto min-h-0">
             {/* 步骤1 */}
             <div className="flex items-start mb-8 mt-6">
               <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-2xl font-bold mr-4 text-white">
@@ -79,6 +80,7 @@ const Instructions: FC<InstructionsProps> = ({ onClose }) => {
                 alt="Loading"
                 width={200}
                 height={100}
+                unoptimized
               />
             </div>
 
@@ -100,6 +102,7 @@ const Instructions: FC<InstructionsProps> = ({ onClose }) => {
                 alt="Loading"
                 width={150}
                 height={100}
+                unoptimized
               />
             </div>
           </div>

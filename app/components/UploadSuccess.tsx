@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { asset } from '@/lib/asset';
 
 interface UploadSuccessProps {
   onClose: () => void;
@@ -31,7 +32,7 @@ export default function UploadSuccess({ onClose, imageUrl, userId }: UploadSucce
           className="w-16 h-16 rounded-full bg-white flex items-center justify-center"
         >
           <Image
-            src="/icon/close.svg"
+            src={asset("/icon/close.svg")}
             alt="Close"
             width={24}
             height={24}
